@@ -6,6 +6,6 @@
     <title>Document</title>
 </head>
 <body>
-    coucou
+    
 </body>
 </html>
