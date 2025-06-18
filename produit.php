@@ -1,8 +1,8 @@
 <?php
 // Connexion à la base de données
 $servername = "localhost";
-$username = "root"; // à modifier selon votre configuration
-$password = ""; // à modifier selon votre configuration
+$username = "root"; 
+$password = ""; 
 $dbname = "confiz";
 
 try {
