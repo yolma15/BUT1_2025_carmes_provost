@@ -358,7 +358,7 @@ main {
 
 .candy-card h3 {
     margin-bottom: 0.5rem;
-    font-size: 1.1rem;
+    font-size: 1.25rem;
 }
 
 .candy-card p {
@@ -499,7 +499,7 @@ main {
 }
 
 .product-name {
-    font-size: 1.1rem;
+    font-size: 1.25rem;
     margin-bottom: 0.5rem;
 }
 
@@ -559,7 +559,7 @@ main {
 }
 
 .product-name {
-    font-size: 1.5rem;
+    font-size: 2.5rem;
     margin-bottom: 0.5rem;
     color: var(--text-color);
 }
