@@ -2,16 +2,22 @@
    1. VARIABLES ET RESET
 ====================================== */
 :root {
+    /* Couleurs principales */
     --primary-color: #FF69B4;
     --secondary-color: #0deec8;
     --accent-color: #3b82f6;
+    
+    /* Couleurs de texte et fond */
     --text-color: #333;
     --light-gray: #f3f4f6;
     --dark-gray: #4b5563;
     --white: #ffffff;
+    
+    /* Animations */
     --transition: all 0.3s ease;
 }
 
+/* Reset */
 * {
     margin: 0;
     padding: 0;
@@ -30,6 +36,7 @@ html, body {
 /* ======================================
    2. BASE ET LAYOUT
 ====================================== */
+/* Structure de base */
 body {
     font-family: 'Roboto', sans-serif;
     color: var(--text-color);
@@ -44,6 +51,7 @@ main {
     flex: 1 0 auto;
 }
 
+/* Conteneurs */
 .container {
     max-width: 1200px;
     width: 100%;
@@ -54,7 +62,7 @@ main {
 /* ======================================
    3. COMPOSANTS GÉNÉRIQUES
 ====================================== */
-/* Boutons */
+/* Boutons principaux */
 .primary-btn, .secondary-btn {
     padding: 12px 24px;
     border-radius: 30px;
@@ -89,7 +97,7 @@ main {
     background-color: rgba(255, 105, 180, 0.1);
 }
 
-/* Autres boutons */
+/* Boutons spécifiques */
 .catalogue-button {
     display: block;
     width: fit-content;
@@ -173,6 +181,7 @@ main {
 /* ======================================
    4. NAVIGATION
 ====================================== */
+/* Barre de navigation */
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -182,6 +191,7 @@ main {
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
+/* Logo */
 .logo-container {
     display: flex;
     justify-content: center;
@@ -191,6 +201,7 @@ main {
     height: 50px;
 }
 
+/* Liens de navigation */
 .nav-links {
     display: flex;
     gap: 20px;
@@ -223,6 +234,7 @@ main {
     width: 100%;
 }
 
+/* Panier et connexion */
 .cart-login {
     display: flex;
     align-items: center;
@@ -240,7 +252,7 @@ main {
     font-weight: 500;
 }
 
-/* Hamburger Menu */
+/* Menu hamburger pour mobile */
 .hamburger-menu {
     display: none;
     flex-direction: column;
@@ -259,6 +271,7 @@ main {
 /* ======================================
    5. HERO SECTION
 ====================================== */
+/* Structure de la section hero */
 .hero {
     display: flex;
     align-items: center;
@@ -267,6 +280,7 @@ main {
     background-color: #e6fff9;
 }
 
+/* Contenu textuel */
 .hero-content {
     width: 50%;
 }
@@ -295,6 +309,7 @@ main {
     gap: 1rem;
 }
 
+/* Image hero */
 .hero-image-container {
     width: 40%;
     display: flex;
@@ -316,6 +331,7 @@ main {
 /* ======================================
    6. DAILY CANDIES SECTION
 ====================================== */
+/* Structure de la section */
 .daily-candies {
     max-width: 1200px;
     margin: 3rem auto;
@@ -328,6 +344,7 @@ main {
     font-size: 2rem;
 }
 
+/* Grille de bonbons */
 .candy-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -335,6 +352,7 @@ main {
     margin-bottom: 2rem;
 }
 
+/* Cartes de bonbons */
 .candy-card {
     background: white;
     padding: 1.5rem;
@@ -369,6 +387,7 @@ main {
 /* ======================================
    7. CATALOGUE PAGE
 ====================================== */
+/* En-tête du catalogue */
 .catalogue-header {
     background-color: #f8f9fa;
     padding: 2rem 0;
@@ -381,6 +400,7 @@ main {
     margin-bottom: 1rem;
 }
 
+/* Filtres */
 .filters {
     max-width: 1200px;
     margin: 0 auto 2rem;
@@ -398,7 +418,8 @@ main {
     justify-content: center;
 }
 
-.filter-form select, .filter-form input[type="text"] {
+.filter-form select, 
+.filter-form input[type="text"] {
     padding: 0.5rem 1rem;
     border: 1px solid #ddd;
     border-radius: 5px;
@@ -430,6 +451,7 @@ main {
     text-decoration: underline;
 }
 
+/* Conteneur du catalogue */
 .catalogue-container {
     max-width: 1200px;
     margin: 0 auto;
@@ -451,7 +473,8 @@ main {
     margin: 2rem 0;
 }
 
-.pagination a, .pagination span {
+.pagination a, 
+.pagination span {
     display: inline-block;
     padding: 0.5rem 1rem;
     border: 1px solid #ddd;
@@ -542,6 +565,7 @@ main {
     margin-bottom: 3rem;
 }
 
+/* Image du produit */
 .product-image-container {
     flex: 1;
     min-width: 300px;
@@ -553,6 +577,7 @@ main {
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
+/* Informations du produit */
 .product-info {
     flex: 2;
     min-width: 300px;
@@ -625,6 +650,7 @@ main {
     font-weight: bold;
 }
 
+/* États du stock */
 .stock-disponible {
     color: green;
 }
@@ -676,14 +702,17 @@ footer {
 /* ======================================
    10. MEDIA QUERIES
 ====================================== */
+/* Tablettes et petits écrans */
 @media (max-width: 992px) {
+    /* Ajustements pour la section hero */
     .hero {
         flex-direction: column;
         text-align: center;
         padding: 40px 20px;
     }
     
-    .hero-content, .hero-image-container {
+    .hero-content, 
+    .hero-image-container {
         width: 100%;
     }
     
@@ -700,7 +729,9 @@ footer {
     }
 }
 
+/* Tablettes et smartphones */
 @media (max-width: 768px) {
+    /* Ajustements pour la navigation */
     .navbar {
         padding: 15px;
     }
@@ -728,12 +759,14 @@ footer {
         right: 0;
     }
     
+    /* Ajustements pour le footer */
     .footer-content {
         flex-direction: column;
         gap: 20px;
         text-align: center;
     }
     
+    /* Ajustements pour les grilles */
     .candy-grid {
         grid-template-columns: 1fr;
     }
@@ -742,13 +775,16 @@ footer {
         grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     }
     
+    /* Ajustements pour les filtres */
     .filter-form {
         flex-direction: column;
         align-items: stretch;
     }
 }
 
+/* Smartphones */
 @media (max-width: 480px) {
+    /* Ajustements pour les titres */
     .hero-content h1 {
         font-size: 2rem;
     }
@@ -757,11 +793,13 @@ footer {
         font-size: 1.2rem;
     }
     
+    /* Ajustements pour les boutons */
     .hero-cta {
         flex-direction: column;
         gap: 15px;
     }
     
+    /* Ajustements pour les sections */
     .daily-candies {
         padding: 1rem;
     }
