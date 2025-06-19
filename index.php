@@ -25,28 +25,12 @@ $confiseries = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Confiz - Revendeur officiel de bonbons Haribo</title>
     <link rel="stylesheet" href="autrecss.css">
-    <script src="product-loader.js"></script>
+    <script src="product-loader.js" defer></script>
 </head>
 
-<body>
-    <header>
-        <nav class="navbar">
-            <div class="nav-links">
-                <a href="index.php">Accueil</a>
-                <a href="boutiques.php">Boutiques</a>
-                <a href="catalogue.php">Catalogue</a>
-            </div>
-
-            <div class="logo-container">
-                <img src="confiz.png" alt="Logo confiz">
-            </div>
-            
-            <div class="cart-login">
-                <a href="panier.php" class="cart-icon">🛒</a>
-                <a href="login.php" class="login-btn">Connexion</a>
-            </div>
-        </nav>
-    </header>
+<?php 
+include 'header.php';
+?>
 
     <main>
         <section id="moi" class="hero">
@@ -83,15 +67,9 @@ $confiseries = $stmt->fetchAll(PDO::FETCH_ASSOC);
         </section>
     </main>
 
-    <footer>
-        <div class="footer-content">
-            <p>&copy; Confiz <?php echo date('Y'); ?>. Tous droits réservés</p>
-            <div class="footer-links">
-                <a href="contact.php">Contact</a>
-                <a href="mentions-legales.php">Mentions légales</a>
-            </div>
-        </div>
-    </footer>
+<?php 
+include 'footer.php';
+?>
 
     <script src="main.js"></script>
 </body>

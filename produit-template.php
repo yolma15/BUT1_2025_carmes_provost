@@ -4,63 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo htmlspecialchars($bonbon['nom']); ?> - Confiz</title>
-    <link rel="stylesheet" href="produit.css">
     <link rel="stylesheet" href="autrecss.css">
 </head>
-<style>
-   
-html, body {
-    height: 100%;
-    margin: 0;
-}
 
-body {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-}
-
-main {
-    flex: 1 0 auto;
-}
-
-footer {
-    flex-shrink: 0;
-}
-
-
-.product-container {
-    max-width: 1200px;
-    margin: 2rem auto;
-    padding: 0 1rem;
-    min-height: 60vh; 
-}
-</style>
 <body>
-    <header>
-        <nav class="navbar">
-            <div class="nav-links">
-                <a href="index.php">Accueil</a>
-                <a href="boutiques.php">Boutiques</a>
-                <a href="catalogue.php">Catalogue</a>
-            </div>
 
-            <div class="logo-container">
-                <img src="confiz.png" alt="Logo confiz">
-            </div>
-            
-            <div class="cart-login">
-                <a href="panier.php" class="cart-icon">🛒</a>
-                <a href="login.php" class="login-btn">Connexion</a>
-            </div>
-            
-            <div class="hamburger-menu">
-                <div class="hamburger-line"></div>
-                <div class="hamburger-line"></div>
-                <div class="hamburger-line"></div>
-            </div>
-        </nav>
-    </header>
+<?php 
+include 'header.php';
+?>
 
     <main>
         <div class="product-container">
@@ -115,15 +66,9 @@ footer {
         </div>
     </main>
 
-    <footer>
-        <div class="footer-content">
-            <p>&copy; Confiz <?php echo date('Y'); ?>. Tous droits réservés</p>
-            <div class="footer-links">
-                <a href="contact.php">Contact</a>
-                <a href="mentions-legales.php">Mentions légales</a>
-            </div>
-        </div>
-    </footer>
+<?php 
+include 'footer.php';
+?>
 
     <script src="main.js"></script>
     <script src="product-loader.js"></script>
