@@ -96,7 +96,17 @@
                         </div>
                     </div>
                 `;
-                
+                // Assurer que les styles sont appliqués correctement
+            requestAnimationFrame(() => {
+                const productElements = document.querySelectorAll('.product-container, .product-details, .product-image, .product-info');
+                productElements.forEach(el => {
+                // Forcer un recalcul pour chaque élément
+                    void el.offsetHeight;
+            });
+            
+            // Ajouter une classe pour déclencher des animations ou transitions si nécessaire
+            document.querySelector('.product-container')?.classList.add('loaded');
+        });
                 // Mettre à jour le contenu de la page
                 mainElement.innerHTML = productHTML;
                 
