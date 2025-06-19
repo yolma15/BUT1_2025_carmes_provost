@@ -5,6 +5,11 @@ html {
     scroll-behavior: smooth;
 }
 
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -218,6 +223,19 @@ body {
 .hero-image:hover {
     transform: scale(1.03);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.product-container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.product-details {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-bottom: 3rem;
 }
 
 /* ======================================

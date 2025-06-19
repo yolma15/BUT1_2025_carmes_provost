@@ -1,8 +1,8 @@
 <?php
 // Connexion à la base de données
 $servername = "localhost";
-$username = "root"; // à modifier selon votre configuration
-$password = ""; // à modifier selon votre configuration
+$username = "root"; 
+$password = ""; 
 $dbname = "confiz";
 
 try {
@@ -50,6 +50,9 @@ $confiseries = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     <main>
         <section id="moi" class="hero">
+            <div class="hero-image-container">
+                <img class="hero-image" src="confiz.png" alt="Logo Confiz">
+            </div>
             <div class="hero-content">
                 <h1>Nous sommes Confiz</h1>
                 <h2>Revendeur officiel de bonbons Haribo</h2>
@@ -61,9 +64,7 @@ $confiseries = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     <a href="boutiques.php" class="secondary-btn">Nos boutiques</a>
                 </div>
             </div>
-            <div class="hero-image-container">
-                <img class="hero-image" src="confiz.png" alt="Logo Confiz">
-            </div>
+            
         </section>
 
         <section class="daily-candies">
