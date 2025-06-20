@@ -1,8 +1,7 @@
 <?php
-// Connexion à la base de données
 $servername = "localhost";
-$username = "root"; // à modifier selon votre configuration
-$password = ""; // à modifier selon votre configuration
+$username = "root"; 
+$password = ""; 
 $dbname = "confiz";
 
 try {
@@ -86,30 +85,9 @@ $confiseries = $stmt->fetchAll(PDO::FETCH_ASSOC);
 </head>
 
 <body>
-    <header>
-        <nav class="navbar">
-            <div class="nav-links">
-                <a href="index.php">Accueil</a>
-                <a href="boutiques.php">Boutiques</a>
-                <a href="catalogue.php">Catalogue</a>
-            </div>
-
-            <div class="logo-container">
-                <img src="confiz.png" alt="Logo confiz">
-            </div>
-            
-            <div class="cart-login">
-                <a href="panier.php" class="cart-icon">🛒</a>
-                <a href="login.php" class="login-btn">Connexion</a>
-            </div>
-            
-            <div class="hamburger-menu">
-                <div class="hamburger-line"></div>
-                <div class="hamburger-line"></div>
-                <div class="hamburger-line"></div>
-            </div>
-        </nav>
-    </header>
+    <?php 
+    include 'header.php'; 
+    ?>
 
     <main>
         <section class="catalogue-header">
@@ -149,10 +127,10 @@ $confiseries = $stmt->fetchAll(PDO::FETCH_ASSOC);
                                 class="product-image"
                             >
                             <div class="product-info">
-                                <h3 class="product-name"><?php echo htmlspecialchars($confiserie['nom']); ?></h3>
-                                <span class="product-type"><?php echo htmlspecialchars($confiserie['type']); ?></span>
-                                <p class="product-price"><?php echo number_format($confiserie['prix'], 2, ',', ' '); ?> €</p>
-                                <p class="product-description"><?php echo htmlspecialchars($confiserie['description']); ?></p>
+                                <h3 class="product-name1"><?php echo htmlspecialchars($confiserie['nom']); ?></h3>
+                                <span class="product-type1"><?php echo htmlspecialchars($confiserie['type']); ?></span>
+                                <p class="product-price1"><?php echo number_format($confiserie['prix'], 2, ',', ' '); ?> €</p>
+                                <p class="product-description1"><?php echo htmlspecialchars($confiserie['description']); ?></p>
                                 <a href="produit.php?id=<?php echo $confiserie['id']; ?>" class="view-product">Voir le produit</a>
                             </div>
                         </div>
@@ -188,17 +166,9 @@ $confiseries = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <?php endif; ?>
         </section>
     </main>
-
-    <footer>
-        <div class="footer-content">
-            <p>&copy; Confiz <?php echo date('Y'); ?>. Tous droits réservés</p>
-            <div class="footer-links">
-                <a href="contact.php">Contact</a>
-                <a href="mentions-legales.php">Mentions légales</a>
-            </div>
-        </div>
-    </footer>
-
+<?php
+include_once 'footer.php';
+?>
     <script src="main.js"></script>
 </body>
 </html>
