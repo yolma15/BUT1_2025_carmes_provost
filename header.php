@@ -21,10 +21,6 @@
                 <i class="nav-icon">🍭</i>
                 <span>Catalogue</span>
             </a>
-            <a href="contact.php" class="nav-link">
-                <i class="nav-icon">📞</i>
-                <span>Contact</span>
-            </a>
         </div>
 
         <!-- Logo central -->

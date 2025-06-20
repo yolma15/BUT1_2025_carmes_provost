@@ -36,24 +36,9 @@
                         <li><a href="index.php" class="footer-link">Accueil</a></li>
                         <li><a href="catalogue.php" class="footer-link">Catalogue</a></li>
                         <li><a href="boutiques.php" class="footer-link">Nos boutiques</a></li>
-                        <li><a href="nouveautes.php" class="footer-link">Nouveautés</a></li>
-                        <li><a href="promotions.php" class="footer-link">Promotions</a></li>
                     </ul>
                 </div>
-
-                <!-- Colonne 3: Service client -->
-                <div class="footer-column">
-                    <h4 class="footer-title">Service Client</h4>
-                    <ul class="footer-links">
-                        <li><a href="contact.php" class="footer-link">Nous contacter</a></li>
-                        <li><a href="faq.php" class="footer-link">FAQ</a></li>
-                        <li><a href="livraison.php" class="footer-link">Livraison</a></li>
-                        <li><a href="retours.php" class="footer-link">Retours</a></li>
-                        <li><a href="garantie.php" class="footer-link">Garantie qualité</a></li>
-                    </ul>
-                </div>
-
-                <!-- Colonne 4: Contact & Newsletter -->
+                <!-- Colonne 3: Contact -->
                 <div class="footer-column">
                     <h4 class="footer-title">Restons en contact</h4>
                     <div class="contact-info">
@@ -69,15 +54,6 @@
                             <i class="contact-icon">🕒</i>
                             <span>Lun-Ven: 9h-18h</span>
                         </div>
-                    </div>
-                    
-                    <div class="newsletter">
-                        <h5 class="newsletter-title">Newsletter</h5>
-                        <p class="newsletter-desc">Recevez nos dernières nouveautés</p>
-                        <form class="newsletter-form" id="newsletter-form">
-                            <input type="email" placeholder="Votre email" class="newsletter-input" required>
-                            <button type="submit" class="newsletter-btn">S'abonner</button>
-                        </form>
                     </div>
                 </div>
             </div>
