@@ -98,7 +98,6 @@ $stats['stock_total'] = $stmt->fetch(PDO::FETCH_ASSOC)['total'] ?: 0;
                 <div class="action-section">
                     <h2>Gestion des boutiques</h2>
                     <div class="action-buttons">
-                        <a href="boutiques.php" class="btn btn-primary">Voir toutes les boutiques</a>
                         <a href="ajouter-boutique.php" class="btn btn-success">Ajouter une boutique</a>
                     </div>
                 </div>
@@ -106,7 +105,6 @@ $stats['stock_total'] = $stmt->fetch(PDO::FETCH_ASSOC)['total'] ?: 0;
                 <div class="action-section">
                     <h2>Gestion du catalogue</h2>
                     <div class="action-buttons">
-                        <a href="confiseries.php" class="btn btn-primary">Gérer le catalogue</a>
                         <a href="ajouter-confiserie.php" class="btn btn-success">Ajouter une confiserie</a>
                     </div>
                 </div>
@@ -114,7 +112,6 @@ $stats['stock_total'] = $stmt->fetch(PDO::FETCH_ASSOC)['total'] ?: 0;
                 <div class="action-section">
                     <h2>Gestion des utilisateurs</h2>
                     <div class="action-buttons">
-                        <a href="utilisateurs.php" class="btn btn-primary">Gérer les utilisateurs</a>
                         <a href="ajouter-utilisateur.php" class="btn btn-success">Ajouter un utilisateur</a>
                     </div>
                 </div>
