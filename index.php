@@ -32,6 +32,7 @@ $confiseries = $stmt->fetchAll(PDO::FETCH_ASSOC);
 include 'header.php';
 ?>
 
+<body>
     <main>
         <section id="moi" class="hero">
             <div class="hero-image-container">
@@ -66,6 +67,7 @@ include 'header.php';
             <a href="catalogue.php" class="catalogue-button">Catalogue</a>
         </section>
     </main>
+</body>
 
 <?php 
 include 'footer.php';

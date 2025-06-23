@@ -1,15 +1,4 @@
-INSERT INTO utilisateurs(id, username, password, email, role, prenom, nom, ddn) VALUES
-(1, 'alice22', md5('1234'),  'alice22@example.com', 'admin', 'Alice', 'Dumoulin', '1982-11-26'),
-(2, 'chalie', md5('1234'), 'chalie@example.com', 'gerant', 'Charlie', 'Elachocoleterie', '1977-01-12'),
-(3, 'bobdu35', md5('1234'), 'bobdu35@example.com', 'client', 'Robert', 'Kinsey', '1982-10-12'),
-(4, 'tywin', md5('1234'), 'tywin@example.com', 'client', 'Charles', 'Dance', '1946-10-10');
-
-INSERT INTO `boutiques` (`id`, `nom`, `utilisateur_id`, `numero_rue`, `nom_adresse`, `code_postal`, `ville`, `pays`) VALUES
-(1, 'La mika-line', 1, '10', 'Rue des Bonbons', '75001', 'Paris', 'France'),
-(2, 'OK Bonbons', 2, '20', 'Avenue des Friandises', '69001', 'Lyon', 'France'),
-(3, 'Saccharo', 3, '30', 'Boulevard des Saveurs', '13001', 'Marseille', 'France');
-
-INSERT INTO `confiseries` (`id`, `nom`, `type`, `prix`, `illustration`, `description`) VALUES
+REPLACE INTO `confiseries` (`id`, `nom`, `type`, `prix`, `illustration`, `description`) VALUES
 (1, 'Bonbon Acide', 'Acide', 1.99, './img/1.jpg', 'Bonbon acide délicieux'),
 (2, 'Caramel', 'Douceur', 2.49, './img/2.jpg', 'Caramel fondant au beurre salé'),
 (3, 'Chocolat Noir', 'Chocolat', 3.99, './img/3.jpg', 'Chocolat noir à 70% de cacao'),
@@ -61,10 +50,3 @@ INSERT INTO `confiseries` (`id`, `nom`, `type`, `prix`, `illustration`, `descrip
 (49, 'Chocolat Blanc Fraise', 'Chocolat', 4.20, './img/49.jpg', 'Chocolat blanc à la fraise'),
 (50, 'Sucette à la Cerise', 'Classique', 1.50, './img/50.jpg', 'Sucette à la cerise acidulée');
 
-
-INSERT INTO stocks(quantite, date_de_modification, boutique_id, confiserie_id) VALUES
-(24, NOW(), 1, 1),
-(54, NOW(), 1, 4),
-(17, NOW(), 2, 6),
-(120, NOW(), 2, 7),
-(8, NOW(), 2, 10);

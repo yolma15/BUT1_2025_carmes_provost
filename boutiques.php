@@ -43,7 +43,7 @@ $boutiques = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <?php foreach($boutiques as $boutique): ?>
                     <div class="boutique-card" data-boutique-id="<?php echo $boutique['id']; ?>">
                         <div class="boutique-image">
-                            <img src="./img/boutique-<?php echo $boutique['id']; ?>.jpg" 
+                            <img src="boutique-<?php $boutique['id']; ?>.jpg" 
                                  alt="<?php echo htmlspecialchars($boutique['nom']); ?>"
                                  onerror="this.src='./img/boutique-default.jpg'">
                         </div>

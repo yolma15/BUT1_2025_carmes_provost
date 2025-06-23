@@ -33,24 +33,6 @@
         
         <!-- Actions utilisateur -->
         <div class="user-actions">
-            <div class="search-container">
-                <button class="search-toggle" id="search-toggle">
-                    <i class="search-icon">🔍</i>
-                </button>
-                <div class="search-dropdown" id="search-dropdown">
-                    <form class="search-form" action="catalogue.php" method="GET">
-                        <input type="text" name="search" placeholder="Rechercher des bonbons..." class="search-input">
-                        <button type="submit" class="search-submit">Rechercher</button>
-                    </form>
-                </div>
-            </div>
-            
-            <a href="panier.php" class="cart-link">
-                <i class="cart-icon">🛒</i>
-                <span class="cart-count" id="cart-count">0</span>
-                <span class="cart-text">Panier</span>
-            </a>
-            
             <div class="auth-container">
                 <a href="login.php" class="login-btn">
                     <i class="user-icon">👤</i>
@@ -58,5 +40,6 @@
                 </a>
             </div>
         </div>
+        
     </nav>
 </header>
