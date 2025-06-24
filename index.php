@@ -25,6 +25,7 @@ $confiseries = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Confiz - Revendeur officiel de bonbons Haribo</title>
     <link rel="stylesheet" href="autrecss.css">
+    <link rel="icon" type="image/png" href="confiz.png" />
 </head>
 
 <?php 

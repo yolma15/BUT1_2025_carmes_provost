@@ -100,7 +100,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             ");
             
             $stmt->bindParam(':username', $username);
-            $stmt->bindParam(':password', md5($password_input)); // Utilisation de MD5 comme dans votre base
+            $stmt->bindParam(':password', md5($password_input)); 
             $stmt->bindParam(':email', $email);
             $stmt->bindParam(':role', $role);
             $stmt->bindParam(':prenom', $prenom);
