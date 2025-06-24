@@ -81,7 +81,6 @@ $confiseries = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <title>Catalogue - Confiz</title>
     <link rel="stylesheet" href="autrecss.css">
     <link rel="stylesheet" href="catalogue.css">
-    <script src="product-loader.js"></script>
 </head>
 
 <body>

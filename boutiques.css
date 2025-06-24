@@ -300,6 +300,56 @@
     margin-left: 10px;
 }
 
+/* Mise à jour pour le bouton lien */
+.voir-boutique-btn {
+    background: linear-gradient(135deg, var(--primary-color), #ff4da6);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 25px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+    font-size: 1rem;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.voir-boutique-btn:hover {
+    background: linear-gradient(135deg, #ff4da6, var(--primary-color));
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 105, 180, 0.3);
+    text-decoration: none;
+    color: white;
+}
+
+/* Mise à jour pour le bouton retour */
+.back-to-boutiques {
+    background-color: #f0f0f0;
+    color: #333;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-bottom: 2rem;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+}
+
+.back-to-boutiques:hover {
+    background-color: #e0e0e0;
+    transform: translateX(-3px);
+    text-decoration: none;
+    color: #333;
+}
+
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }

@@ -59,14 +59,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['supprimer_confiserie'
 
 // Récupérer les confiseries non vendues
 $stmt = $conn->query("
-    SELECT c.*,
-           COALESCE(SUM(s.quantite), 0) as stock_total,
-           COUNT(DISTINCT s.boutique_id) as nb_boutiques
-    FROM confiseries c 
-    LEFT JOIN stocks s ON c.id = s.confiserie_id AND s.quantite > 0
-    GROUP BY c.id
-    HAVING stock_total = 0
-    ORDER BY c.nom
+    SELECT c.*
+FROM confiseries c 
+WHERE NOT EXISTS (
+    SELECT 1 FROM stocks s 
+    WHERE s.confiserie_id = c.id AND s.quantite > 0
+)
+ORDER BY c.nom
 ");
 $confiseries_non_vendues = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>

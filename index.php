@@ -25,7 +25,6 @@ $confiseries = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Confiz - Revendeur officiel de bonbons Haribo</title>
     <link rel="stylesheet" href="autrecss.css">
-    <script src="product-loader.js" defer></script>
 </head>
 
 <?php 

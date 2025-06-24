@@ -13,6 +13,15 @@ try {
     exit;
 }
 
+// Vérifier si on doit afficher une boutique spécifique
+$boutiqueId = isset($_GET['boutique']) ? (int)$_GET['boutique'] : 0;
+
+if ($boutiqueId > 0) {
+    // Rediriger vers la page de détails de la boutique
+    header("Location: boutique-details.php?id=$boutiqueId");
+    exit;
+}
+
 // Récupérer toutes les boutiques
 $stmt = $conn->prepare("SELECT * FROM boutiques ORDER BY nom");
 $stmt->execute();
@@ -41,9 +50,9 @@ $boutiques = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <section class="boutiques-container">
             <div class="boutiques-grid">
                 <?php foreach($boutiques as $boutique): ?>
-                    <div class="boutique-card" data-boutique-id="<?php echo $boutique['id']; ?>">
+                    <div class="boutique-card">
                         <div class="boutique-image">
-                            <img src="boutique-<?php $boutique['id']; ?>.jpg" 
+                            <img src="boutique-<?php echo $boutique['id']; ?>.jpg" 
                                  alt="<?php echo htmlspecialchars($boutique['nom']); ?>"
                                  onerror="this.src='./img/boutique-default.jpg'">
                         </div>
@@ -54,22 +63,12 @@ $boutiques = $stmt->fetchAll(PDO::FETCH_ASSOC);
                                 <?php echo htmlspecialchars($boutique['code_postal'] . ' ' . $boutique['ville']); ?><br>
                                 <?php echo htmlspecialchars($boutique['pays']); ?>
                             </p>
-                            <button class="voir-boutique-btn" onclick="voirBoutique(<?php echo $boutique['id']; ?>)">
+                            <a href="boutique-details.php?id=<?php echo $boutique['id']; ?>" class="voir-boutique-btn">
                                 Voir les produits
-                            </button>
+                            </a>
                         </div>
                     </div>
                 <?php endforeach; ?>
-            </div>
-        </section>
-
-        <!-- Section pour afficher les détails d'une boutique -->
-        <section id="boutique-details" class="boutique-details" style="display: none;">
-            <div class="details-container">
-                <button class="back-to-boutiques" onclick="retourBoutiques()">← Retour aux boutiques</button>
-                <div id="boutique-content">
-                    <!-- Le contenu sera chargé dynamiquement -->
-                </div>
             </div>
         </section>
     </main>
@@ -77,6 +76,5 @@ $boutiques = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <?php include 'footer.php'; ?>
 
     <script src="main.js"></script>
-    <script src="boutiques.js"></script>
 </body>
 </html>

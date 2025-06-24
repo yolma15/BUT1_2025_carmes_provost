@@ -1,73 +1,42 @@
 <?php
-// Connexion à la base de données
-$servername = "localhost";
-$username = "root"; 
-$password = ""; 
-$dbname = "confiz";
+require_once 'product-handler.php';
 
-try {
-    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch(PDOException $e) {
-    if (isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) === 'xmlhttprequest') {
-        header('Content-Type: application/json');
-        echo json_encode(['error' => 'Erreur de connexion: ' . $e->getMessage()]);
-        exit;
-    }
-    die("Erreur de connexion: " . $e->getMessage());
-}
+$productId = isset($_GET['id']) ? (int)$_GET['id'] : 0;
 
-// Vérifier si l'ID est fourni
-if (!isset($_GET['id']) || !is_numeric($_GET['id'])) {
-    if (isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) === 'xmlhttprequest') {
-        header('Content-Type: application/json');
-        echo json_encode(['error' => 'ID de produit non valide']);
-        exit;
-    }
+if ($productId <= 0) {
     header('Location: catalogue.php');
     exit;
 }
 
-$id = $_GET['id'];
+$productData = getProductDetails($conn, $productId);
 
-// Récupérer les détails du bonbon
-$stmt = $conn->prepare("SELECT * FROM confiseries WHERE id = :id");
-$stmt->bindParam(':id', $id, PDO::PARAM_INT);
-$stmt->execute();
-
-if ($stmt->rowCount() === 0) {
-    if (isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) === 'xmlhttprequest') {
-        header('Content-Type: application/json');
-        echo json_encode(['error' => 'Produit non trouvé']);
-        exit;
-    }
+if (!$productData) {
     header('Location: catalogue.php');
     exit;
 }
 
-$bonbon = $stmt->fetch(PDO::FETCH_ASSOC);
-
-// Récupérer les stocks disponibles dans les différentes boutiques
-$stmt = $conn->prepare("
-    SELECT s.quantite, b.nom as boutique_nom, b.ville, b.id as boutique_id
-    FROM stocks s
-    JOIN boutiques b ON s.boutique_id = b.id
-    WHERE s.confiserie_id = :id
-");
-$stmt->bindParam(':id', $id, PDO::PARAM_INT);
-$stmt->execute();
-$stocks = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-// Si c'est une requête AJAX, renvoyer les données au format JSON
-if (isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) === 'xmlhttprequest') {
-    header('Content-Type: application/json');
-    echo json_encode([
-        'bonbon' => $bonbon,
-        'stocks' => $stocks
-    ]);
-    exit;
-}
-
-// Si ce n'est pas une requête AJAX, inclure le template HTML
-include 'produit-template.php';
+$bonbon = $productData['bonbon'];
+$pageTitle = htmlspecialchars($bonbon['nom']) . ' - Confiz';
 ?>
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><?php echo $pageTitle; ?></title>
+    <link rel="stylesheet" href="autrecss.css">
+</head>
+
+<body>
+    <?php include 'header.php'; ?>
+
+    <main>
+        <?php echo renderProductPage($productData); ?>
+    </main>
+
+    <?php include 'footer.php'; ?>
+    
+    <script src="main.js"></script>
+</body>
+</html>

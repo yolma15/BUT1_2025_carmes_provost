@@ -71,6 +71,5 @@ include 'footer.php';
 ?>
 
     <script src="main.js"></script>
-    <script src="product-loader.js"></script>
 </body>
 </html>
