@@ -35,6 +35,26 @@ $stats['gerants'] = $stmt->fetch(PDO::FETCH_ASSOC)['total'];
 // Stock total
 $stmt = $conn->query("SELECT SUM(quantite) as total FROM stocks");
 $stats['stock_total'] = $stmt->fetch(PDO::FETCH_ASSOC)['total'] ?: 0;
+
+// Boutiques vides (sans stock)
+$stmt = $conn->query("
+    SELECT COUNT(*) as total 
+    FROM boutiques b 
+    WHERE NOT EXISTS (
+        SELECT 1 FROM stocks s WHERE s.boutique_id = b.id AND s.quantite > 0
+    )
+");
+$stats['boutiques_vides'] = $stmt->fetch(PDO::FETCH_ASSOC)['total'];
+
+// Confiseries non vendues (pas en stock nulle part)
+$stmt = $conn->query("
+    SELECT COUNT(*) as total 
+    FROM confiseries c 
+    WHERE NOT EXISTS (
+        SELECT 1 FROM stocks s WHERE s.confiserie_id = c.id AND s.quantite > 0
+    )
+");
+$stats['confiseries_non_vendues'] = $stmt->fetch(PDO::FETCH_ASSOC)['total'];
 ?>
 
 <!DOCTYPE html>
@@ -93,12 +113,43 @@ $stats['stock_total'] = $stmt->fetch(PDO::FETCH_ASSOC)['total'] ?: 0;
                 </div>
             </div>
             
+            <!-- Alertes de nettoyage -->
+            <?php if ($stats['boutiques_vides'] > 0 || $stats['confiseries_non_vendues'] > 0): ?>
+                <div class="cleanup-alerts">
+                    <h2>🧹 Nettoyage recommandé</h2>
+                    <div class="alert-grid">
+                        <?php if ($stats['boutiques_vides'] > 0): ?>
+                            <div class="cleanup-card">
+                                <div class="cleanup-icon">🏪</div>
+                                <div class="cleanup-info">
+                                    <h4><?php echo $stats['boutiques_vides']; ?> boutique(s) vide(s)</h4>
+                                    <p>Ces boutiques n'ont aucun stock et peuvent être supprimées</p>
+                                    <a href="supprimer-boutiques.php" class="btn btn-danger btn-small">Gérer les suppressions</a>
+                                </div>
+                            </div>
+                        <?php endif; ?>
+                        
+                        <?php if ($stats['confiseries_non_vendues'] > 0): ?>
+                            <div class="cleanup-card">
+                                <div class="cleanup-icon">🍭</div>
+                                <div class="cleanup-info">
+                                    <h4><?php echo $stats['confiseries_non_vendues']; ?> confiserie(s) non vendue(s)</h4>
+                                    <p>Ces confiseries ne sont en vente dans aucune boutique</p>
+                                    <a href="supprimer-confiseries.php" class="btn btn-danger btn-small">Gérer les suppressions</a>
+                                </div>
+                            </div>
+                        <?php endif; ?>
+                    </div>
+                </div>
+            <?php endif; ?>
+            
             <!-- Actions principales -->
             <div class="admin-actions">
                 <div class="action-section">
                     <h2>Gestion des boutiques</h2>
                     <div class="action-buttons">
                         <a href="ajouter-boutique.php" class="btn btn-success">Ajouter une boutique</a>
+                        <a href="supprimer-boutiques.php" class="btn btn-danger">Supprimer des boutiques</a>
                     </div>
                 </div>
                 
@@ -106,6 +157,7 @@ $stats['stock_total'] = $stmt->fetch(PDO::FETCH_ASSOC)['total'] ?: 0;
                     <h2>Gestion du catalogue</h2>
                     <div class="action-buttons">
                         <a href="ajouter-confiserie.php" class="btn btn-success">Ajouter une confiserie</a>
+                        <a href="supprimer-confiseries.php" class="btn btn-danger">Supprimer des confiseries</a>
                     </div>
                 </div>
                 
